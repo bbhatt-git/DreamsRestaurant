@@ -1,6 +1,6 @@
 import React from 'react';
 import { REVIEWS } from '../constants';
-import { Star, Quote } from 'lucide-react';
+import { Star, Quote, Utensils, Wallet, Users } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
   return (
@@ -18,13 +18,13 @@ const Testimonials: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
            {[
-             { label: 'Best Momos', sub: 'In Mahendranagar', icon: '🥟' },
-             { label: 'Budget-Friendly', sub: 'Rs 1000-1500/person', icon: '💰' },
-             { label: '4.1 Rating', sub: '197+ Reviews', icon: '⭐' },
-             { label: 'Group Friendly', sub: 'Perfect for hangouts', icon: '👯' },
+             { label: 'Best Momos', sub: 'In Mahendranagar', icon: <Utensils className="w-8 h-8 text-brand-orange mx-auto" /> },
+             { label: 'Budget-Friendly', sub: 'Rs 1000-1500/person', icon: <Wallet className="w-8 h-8 text-brand-orange mx-auto" /> },
+             { label: '4.1 Rating', sub: '197+ Reviews', icon: <Star className="w-8 h-8 text-brand-orange mx-auto fill-current" /> },
+             { label: 'Group Friendly', sub: 'Perfect for hangouts', icon: <Users className="w-8 h-8 text-brand-orange mx-auto" /> },
            ].map((stat, i) => (
              <div key={i} className="bg-brand-gray p-6 rounded-xl text-center border border-gray-800">
-               <div className="text-3xl mb-2">{stat.icon}</div>
+               <div className="mb-2 flex justify-center">{stat.icon}</div>
                <div className="font-bold text-brand-orange text-lg">{stat.label}</div>
                <div className="text-xs text-gray-500">{stat.sub}</div>
              </div>

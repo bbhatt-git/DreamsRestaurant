@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Utensils } from 'lucide-react';
+import { MapPin, Utensils, Flame } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -24,8 +24,9 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block bg-brand-red/90 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-lg backdrop-blur-sm">
-            🔥 Famous for Best Momos in Mahendranagar
+          <div className="inline-flex items-center gap-2 bg-brand-red/90 text-white px-4 py-1.5 rounded-full text-sm font-semibold mb-6 shadow-lg backdrop-blur-sm">
+            <Flame className="w-4 h-4 fill-brand-orange text-brand-orange" />
+            <span>Famous for Best Momos in Mahendranagar</span>
           </div>
           
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight font-serif drop-shadow-lg">

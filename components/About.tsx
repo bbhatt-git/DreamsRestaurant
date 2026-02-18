@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Heart, Users, DollarSign, Award } from 'lucide-react';
+import { Heart, Users, DollarSign, Award, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
@@ -32,7 +32,10 @@ const About: React.FC = () => {
               />
             </div>
             <div className="absolute -bottom-6 -right-6 bg-brand-red text-white p-6 rounded-xl shadow-xl hidden md:block">
-              <p className="text-3xl font-bold">4.1★</p>
+              <div className="flex items-center gap-1 justify-center">
+                <p className="text-3xl font-bold">4.1</p>
+                <Star className="w-6 h-6 fill-white" />
+              </div>
               <p className="text-sm opacity-90">Google Rating</p>
             </div>
           </motion.div>

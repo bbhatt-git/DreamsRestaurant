@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flame, Facebook, Instagram, Twitter } from 'lucide-react';
+import { Flame, Facebook, Instagram, Twitter, MapPin, Phone, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -40,16 +40,16 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider text-brand-orange">Contact Us</h4>
              <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
-                <span className="text-brand-red">📍</span>
-                Mahendranagar (Bhimdatta), Nepal
+                <MapPin className="w-4 h-4 text-brand-red flex-shrink-0 mt-0.5" />
+                <span>Mahendranagar (Bhimdatta), Nepal</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-red">📞</span>
-                Call for orders
+                <Phone className="w-4 h-4 text-brand-red flex-shrink-0" />
+                <span>Call for orders</span>
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-brand-red">🕒</span>
-                Open Daily
+                <Clock className="w-4 h-4 text-brand-red flex-shrink-0" />
+                <span>Open Daily</span>
               </li>
             </ul>
           </div>
