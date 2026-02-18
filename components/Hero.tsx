@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://images.unsplash.com/photo-1594982606822-b5e14d33a69a?q=80&w=1920&auto=format&fit=crop"
+          src="https://shivapuricottage.com/wp-content/uploads/2016/02/Momos-e1597126880942-1040x590.jpg"
           alt="Steaming Momos"
           className="w-full h-full object-cover"
         />
