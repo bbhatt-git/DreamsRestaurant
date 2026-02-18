@@ -1,29 +1,30 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import SignatureDishes from './components/SignatureDishes';
-import About from './components/About';
-import Testimonials from './components/Testimonials';
-import Menu from './components/Menu';
-import VisitUs from './components/VisitUs';
 import Footer from './components/Footer';
-import Gallery from './components/Gallery';
+import Home from './pages/Home';
+import MenuPage from './pages/MenuPage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import ScrollToTop from './components/ScrollToTop';
 
 const App: React.FC = () => {
   return (
-    <div className="bg-brand-dark min-h-screen text-gray-200 font-sans selection:bg-brand-orange selection:text-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <SignatureDishes />
-        <About />
-        <Testimonials />
-        <Menu />
-        <Gallery />
-        <VisitUs />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="bg-brand-dark min-h-screen text-gray-200 font-sans selection:bg-brand-orange selection:text-white flex flex-col">
+        <Navbar />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<MenuPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 

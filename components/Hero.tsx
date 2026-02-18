@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, Utensils } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero: React.FC = () => {
   return (
@@ -36,20 +37,20 @@ const Hero: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a
-              href="#menu"
+            <Link
+              to="/menu"
               className="bg-brand-red hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 shadow-xl flex items-center gap-2 w-full sm:w-auto justify-center"
             >
               <Utensils className="w-5 h-5" />
               View Menu
-            </a>
-            <a
-              href="#visit"
+            </Link>
+            <Link
+              to="/contact"
               className="bg-brand-orange hover:bg-orange-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105 shadow-xl flex items-center gap-2 w-full sm:w-auto justify-center"
             >
               <MapPin className="w-5 h-5" />
               Get Directions
-            </a>
+            </Link>
           </div>
         </motion.div>
       </div>

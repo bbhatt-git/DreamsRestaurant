@@ -1,10 +1,11 @@
 import React from 'react';
 import { SIGNATURE_DISHES } from '../constants';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const SignatureDishes: React.FC = () => {
   return (
-    <section id="signature" className="py-20 bg-brand-gray text-white">
+    <section className="py-20 bg-brand-gray text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-16">
@@ -48,9 +49,9 @@ const SignatureDishes: React.FC = () => {
         </div>
 
         <div className="text-center mt-12">
-            <a href="#menu" className="inline-flex items-center justify-center px-8 py-3 border-2 border-brand-orange text-brand-orange font-bold rounded-lg hover:bg-brand-orange hover:text-white transition-all">
+            <Link to="/menu" className="inline-flex items-center justify-center px-8 py-3 border-2 border-brand-orange text-brand-orange font-bold rounded-lg hover:bg-brand-orange hover:text-white transition-all">
                 View All Dishes
-            </a>
+            </Link>
         </div>
       </div>
     </section>

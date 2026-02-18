@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,46 +16,46 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Menu', href: '#menu' },
-    { name: 'Signature Dishes', href: '#signature' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Visit Us', href: '#visit' },
+    { name: 'Home', path: '/' },
+    { name: 'Menu', path: '/menu' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-dark/95 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isOpen ? 'bg-brand-dark/95 backdrop-blur-sm shadow-lg py-2' : 'bg-transparent py-4'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <div className="flex-shrink-0 flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0,0)}>
+          <Link to="/" className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => window.scrollTo(0,0)}>
             <img 
-              src="/icon.png" 
+              src="https://raw.githubusercontent.com/bbhatt-git/app/refs/heads/main/icon.png" 
               alt="Dreams Restaurant" 
-              className="h-10 w-auto object-contain" 
+              className="h-12 md:h-16 w-auto object-contain" 
             />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold text-white tracking-wide font-serif">Dreams</span>
-              <span className="text-[0.65rem] text-gray-400 uppercase tracking-widest leading-none">Restaurant</span>
-            </div>
-          </div>
+          </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
-                className="text-gray-300 hover:text-brand-orange transition-colors text-sm font-medium uppercase tracking-wider"
+                to={link.path}
+                className={`text-sm font-medium uppercase tracking-wider transition-colors ${isActive(link.path) ? 'text-brand-orange font-bold' : 'text-gray-300 hover:text-white'}`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
-            <a
-              href="#visit"
+            <Link
+              to="/menu"
               className="bg-brand-red hover:bg-red-700 text-white px-5 py-2.5 rounded-md font-semibold transition-all shadow-md transform hover:scale-105 flex items-center gap-2"
             >
               <span>Order Now</span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -72,22 +74,22 @@ const Navbar: React.FC = () => {
       <div className={`md:hidden absolute w-full bg-brand-gray transition-all duration-300 ease-in-out overflow-hidden ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="px-4 pt-2 pb-6 space-y-2 shadow-inner">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.path}
               onClick={() => setIsOpen(false)}
-              className="block px-3 py-3 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-brand-dark"
+              className={`block px-3 py-3 rounded-md text-base font-medium ${isActive(link.path) ? 'text-brand-orange bg-brand-dark' : 'text-gray-300 hover:text-white hover:bg-brand-dark'}`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
-          <a
-             href="#visit"
+          <Link
+             to="/menu"
              onClick={() => setIsOpen(false)}
              className="w-full mt-4 bg-brand-red text-white py-3 rounded-md font-bold text-center block"
           >
             Order Now
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

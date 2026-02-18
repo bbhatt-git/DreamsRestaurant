@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Users, DollarSign, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About: React.FC = () => {
   const features = [
@@ -11,7 +12,7 @@ const About: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-[#FDF2F8]"> {/* Light warm background for contrast */}
+    <section className="py-20 bg-[#FDF2F8]"> {/* Light warm background for contrast */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
@@ -71,9 +72,9 @@ const About: React.FC = () => {
             </div>
 
             <div className="mt-10">
-               <a href="#about-story" className="bg-brand-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
-                 Learn Our Story &rarr;
-               </a>
+               <Link to="/contact" className="bg-brand-red hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+                 Visit Us Today &rarr;
+               </Link>
             </div>
 
           </motion.div>
